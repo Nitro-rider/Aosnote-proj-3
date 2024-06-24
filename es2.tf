@@ -8,7 +8,7 @@ provider "aws" {
 # store the terraform state file in s3
 terraform {
   backend "s3" {
-    bucket  = "jakinmas1-terraform-remote-state"
+    bucket  = "jhk-codebuild-bucky"
     key     = "build/terraform.tfstate"
     region  = "eu-central-1"
     profile = "codebuild-user"
