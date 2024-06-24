@@ -7,7 +7,13 @@ phases:
 
   pre_build:
     commands:
+      - echo "Current directory before cd: $(pwd)"
+      - echo "Listing files before cd:"
+      - ls -l
       - cd cicd # change directory
+      - echo "Current directory after cd: $(pwd)"
+      - echo "Listing files in cicd directory:"
+      - ls -l
       - chmod +x install-terraform.sh configure-named-profile.sh apply-terraform.sh # correct paths for chmod
       - ./install-terraform.sh # install terraform
       - ./configure-named-profile.sh # configure named profile
