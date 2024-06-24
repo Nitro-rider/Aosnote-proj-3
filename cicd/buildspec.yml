@@ -1,24 +1,16 @@
+---
 version: 0.2
-
 phases:
   install:
     runtime-versions:
       python: 3.x
-
   pre_build:
     commands:
-      - echo "Current directory before cd: $(pwd)"
-      - echo "Listing files before cd:"
-      - ls -l
       - cd cicd
-      - echo "Current directory after cd: $(pwd)"
-      - echo "Listing files in cicd directory:"
-      - ls -l
-      - chmod +x install-terraform.sh configure-named-profile.sh apply-terraform.sh
+      - chmod +x install-terraform.sh configure-named-profile.sh
+        apply-terraform.sh
       - ./install-terraform.sh
       - ./configure-named-profile.sh
-
   build:
     commands:
-      - echo "Current directory in build phase: $(pwd)"
       - ./apply-terraform.sh
